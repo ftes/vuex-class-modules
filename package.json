@@ -10,7 +10,9 @@
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc",
+    "build": "npm run build:es2015 && npm run build:commonjs",
+    "build:es2015": "tsc",
+    "build:commonjs": "tsc -m commonjs --outDir lib/commonjs",
     "lint": "tslint -p tsconfig.json --fix",
     "example": "npm run build && webpack --config ./example/webpack.config.js",
     "prepare": "npm run build",
